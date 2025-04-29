@@ -1,0 +1,244 @@
+/* Base container */
+.landing-container {
+    min-height: 100vh;
+    background-image: url('E:\real-estate\real-estate-app\public\icon.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Overlay for better text readability */
+.landing-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+    z-index: 1;
+}
+
+/* Ensure content stays above overlay */
+.navbar, .main-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Header Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 max(5%, 20px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.logo-icon {
+    color: #38bdf8;
+    font-size: 28px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-btn {
+    height: 42px;
+    padding: 0 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+    color: #ffffff;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.signup {
+    background: #38bdf8;
+    color: #0f172a;
+}
+
+.signup:hover {
+    background: #0ea5e9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px max(5%, 20px) max(5%, 20px);
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.get-started {
+    font-size: 3.5rem;
+    color: white;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    line-height: 1.2;
+    padding: 0 10px;
+}
+
+/* Cards Container */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.98) 100%);
+}
+
+.card-icon {
+    color: #38bdf8;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        height: auto;
+        padding: 16px 5%;
+    }
+
+    .logo-text {
+        font-size: 20px;
+    }
+
+    .logo-icon {
+        font-size: 24px;
+    }
+
+    .nav-buttons {
+        gap: 12px;
+    }
+
+    .nav-btn {
+        height: 38px;
+        padding: 0 16px;
+        font-size: 14px;
+    }
+
+    .get-started {
+        font-size: 2.5rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        padding: 12px 5%;
+        gap: 12px;
+        height: auto;
+    }
+
+    .nav-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .main-content {
+        padding-top: 140px;
+    }
+
+    .get-started {
+        font-size: 2rem;
+    }
+}
